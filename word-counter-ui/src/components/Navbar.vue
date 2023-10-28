@@ -1,6 +1,11 @@
 <template>
-    <p>HomeView works</p>
+     <p>Navbar works</p>
 </template>
 
 <script setup lang="ts">
+
 </script>
+
+<style scoped>
+
+</style>
