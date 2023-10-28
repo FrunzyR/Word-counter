@@ -25,6 +25,8 @@ header{
 }
 
 main{
+    max-width: 1000px;
+    margin: 0 auto;
     height:70vh;
 }
 
