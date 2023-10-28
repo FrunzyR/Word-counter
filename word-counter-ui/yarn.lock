@@ -4991,6 +4991,11 @@ pretty-error@^4.0.0:
     lodash "^4.17.20"
     renderkid "^3.0.0"
 
+primeflex@^3.3.1:
+  version "3.3.1"
+  resolved "https://registry.yarnpkg.com/primeflex/-/primeflex-3.3.1.tgz#361dddf6eb5db50d733e4cddd4b6e376a3d7bd68"
+  integrity sha512-zaOq3YvcOYytbAmKv3zYc+0VNS9Wg5d37dfxZnveKBFPr7vEIwfV5ydrpiouTft8MVW6qNjfkaQphHSnvgQbpQ==
+
 primevue@^3.38.1:
   version "3.38.1"
   resolved "https://registry.yarnpkg.com/primevue/-/primevue-3.38.1.tgz#aa81e97e1ff66cc7dac7e7d42ed55aa6e7296d7f"
