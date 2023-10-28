@@ -1,16 +1,35 @@
 <script setup lang="ts">
 import {RouterView} from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+import Navbar from '@/components/Navbar.vue'
+import CustomFooter from './components/CustomFooter.vue';
 </script>
 
 <template>
     <header>
-        <HelloWorld msg="You did it!"/>
+       <Navbar/>
     </header>
-    <RouterView/>
+    
+    <main>
+        <RouterView/>
+    </main>
+    
+    <footer>
+        <CustomFooter/>
+    </footer>
 </template>
 
 <style scoped>
-@import 'primevue/resources/themes/lara-light-teal/theme.css';
+
+header{
+    height: 10vh;  
+}
+
+main{
+    height:70vh;
+}
+
+footer{
+    height:14vh;
+}
 
 </style>
