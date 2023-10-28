@@ -8,25 +8,27 @@
             </div>
             <div class="flex flex-column gap-2">
                 <label for="url">Paste the link of a {{ selectedOption.name }}</label>
-                <InputText id="url" placeholder="Your URL"/>
+                <InputText id="url" v-model="videoURL" placeholder="Your URL"/>
             </div>
-            <Button label="Count"  />
+            <Button label="Count"/>
         </div>
 
         <div class="second-column">
-
+            <VideoPreview :videoURL="videoURL"/>
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import VideoPreview from '@/components/VideoPreview.vue'
 
 const options = ref([
     { name: 'Playlist' },
     { name: 'Video' },
 ])
 const selectedOption = ref(options.value[0]);
+const videoURL = ref("");
 </script>
 
 <style scoped>
@@ -52,7 +54,9 @@ h1 {
 }
 
 .second-column {
-    background-color: aqua;
     width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 </style>
