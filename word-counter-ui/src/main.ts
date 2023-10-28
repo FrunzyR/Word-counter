@@ -14,6 +14,7 @@ import App from './App.vue'
 import router from './router'
 import InputText from 'primevue/inputtext';
 import Button from 'primevue/button';
+import Menubar from 'primevue/menubar';
 
 const app = createApp(App)
 
@@ -24,5 +25,6 @@ app.use(router)
 app.component('Dropdown', Dropdown);
 app.component('InputText', InputText)
 app.component('Button', Button)
+app.component('Menubar', Menubar)
 
 app.mount('#app')
