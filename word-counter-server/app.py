@@ -1,6 +1,7 @@
 from time import sleep
 
 from flask import Flask, request
+from youtube_transcript_api import YouTubeTranscriptApi
 
 app = Flask(__name__)
 
@@ -13,48 +14,38 @@ def hello_world():
 @app.route('/analyse', methods=["GET"])
 def analysing():
     args = request.args
-    sleep(2)
+    srt = YouTubeTranscriptApi.get_transcript(args['videoId'], languages=['en'])
+    full_srt = ""
+    results = []
+    count = {}
+    for element in srt:
+        full_srt += element["text"]\
+            .replace("\n", " ")\
+            .replace(",", " ")\
+            .replace(".", " ")\
+            .replace(":", " ")\
+            .replace('"', "")\
+            .replace("-", " ")\
+            .replace("[", " ")\
+            .replace("]", " ")
+
+    print(full_srt.split())
+
+    for word in full_srt.lower().split():
+        if word in count.keys():
+            count[word] = count[word] + 1
+        else:
+            count[word] = 1
+    sorted_dict = dict(sorted(count.items(), key=lambda x: x[1], reverse=True))
+    for entry in sorted_dict.items():
+        results.append({"word": entry[0], "count": entry[1]})
+    print(results)
+
     return {
         "videoTitle": "The enduring mystery of Jack the Ripper",
         "videoId": args['videoId'],
         "lang": args["lang"],
-        "results": [
-            {"word": "the", "count": 100},
-            {"word": "be", "count": 99},
-            {"word": "to", "count": 98},
-            {"word": "of", "count": 97},
-            {"word": "and", "count": 96},
-            {"word": "a", "count": 95},
-            {"word": "in", "count": 94},
-            {"word": "that", "count": 93},
-            {"word": "have", "count": 92},
-            {"word": "I", "count": 91},
-            {"word": "it", "count": 90},
-            {"word": "for", "count": 89},
-            {"word": "not", "count": 88},
-            {"word": "on", "count": 87},
-            {"word": "he", "count": 86},
-            {"word": "as", "count": 85},
-            {"word": "you", "count": 84},
-            {"word": "do", "count": 83},
-            {"word": "are", "count": 82},
-            {"word": "we", "count": 81},
-            {"word": "his", "count": 80},
-            {"word": "with", "count": 79},
-            {"word": "by", "count": 78},
-            {"word": "at", "count": 77},
-            {"word": "or", "count": 76},
-            {"word": "this", "count": 75},
-            {"word": "but", "count": 74},
-            {"word": "from", "count": 73},
-            {"word": "they", "count": 72},
-            {"word": "her", "count": 71},
-            {"word": "which", "count": 70},
-            {"word": "or", "count": 69},
-            {"word": "she", "count": 68},
-            {"word": "an", "count": 67},
-            {"word": "will", "count": 66}
-        ]
+        "results": results,
     }
 
 
