@@ -20,7 +20,7 @@ import VideoPreview from '@/components/VideoPreview.vue';
 
 const videoStore = useVideoStore()
 
-const response = await fetch("http://localhost:5001/analyse?" + new URLSearchParams({
+const response = await fetch("/api/analyse?" + new URLSearchParams({
     videoId: videoStore.videoId,
     lang: "en"
 }));
