@@ -6,7 +6,7 @@
         </div>
 
         <div class="second-column">
-            <DataTable :value="body.results" tableStyle="min-width: 50rem">
+            <DataTable :value="body.results">
                 <Column field="word" header="Word"></Column>
                 <Column field="count" header="Count"></Column>
             </DataTable>
@@ -31,7 +31,6 @@ console.log(body)
 <style scoped>
 .container {
     height: inherit;
-
     display: flex;
     font-size: large;
 }
