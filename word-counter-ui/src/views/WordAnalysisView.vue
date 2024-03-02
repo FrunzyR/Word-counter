@@ -1,11 +1,11 @@
 <template>
-    <div class="container">
-        <div class="first-column">
+    <div class="container grid">
+        <div class="first-column col-12 md:col-6">
             <h1>{{ body.videoTitle }}</h1>
             <VideoPreview />
         </div>
 
-        <div class="second-column">
+        <div class="second-column col-12 md:col-6">
             <DataTable :value="body.results">
                 <Column field="word" header="Word"></Column>
                 <Column field="count" header="Count"></Column>
@@ -31,12 +31,10 @@ console.log(body)
 <style scoped>
 .container {
     height: inherit;
-    display: flex;
     font-size: large;
 }
 
 .first-column {
-    width: 50%;
     display: flex;
     flex-direction: column;
     justify-content: start;
@@ -50,7 +48,6 @@ h1 {
 }
 
 .second-column {
-    width: 50%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;

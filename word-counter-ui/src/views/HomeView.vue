@@ -1,6 +1,6 @@
 <template>
-    <div class="container">
-        <div class="first-column">
+    <div class="container grid">
+        <div class="first-column col-12 md:col-6">
             <h1>Youtube caption word counter</h1>
             <div class="flex flex-column gap-2">
                 <label for="selectedOption">Select content type</label>
@@ -13,7 +13,7 @@
             <Button label="Analyse" :disabled="!videoURLInput" @click="$router.push('analysis')"/>
         </div>
 
-        <div class="second-column">
+        <div class="second-column col-12 md:col-6">
             <VideoPreview />
         </div>
     </div>
@@ -46,13 +46,10 @@ const videoURLInput = computed({
 <style scoped>
 .container {
     height: inherit;
-
-    display: flex;
     font-size: large;
 }
 
 .first-column {
-    width: 50%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -66,7 +63,6 @@ h1 {
 }
 
 .second-column {
-    width: 50%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
