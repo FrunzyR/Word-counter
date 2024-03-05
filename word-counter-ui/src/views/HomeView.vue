@@ -2,19 +2,20 @@
     <div class="container grid">
         <div class="first-column col-12 md:col-6">
             <h1>Youtube caption word counter</h1>
-            <div class="flex flex-column gap-2">
+            <!-- <div class="flex flex-column gap-2">
                 <label for="selectedOption">Select content type</label>
                 <Dropdown id="selectedOption" v-model="selectedOption" :options="options" optionLabel="name" class="w-full" />
-            </div>
+            </div> -->
             <div class="flex flex-column gap-2">
                 <label for="url">Paste the link of a {{ selectedOption.name }}</label>
                 <InputText id="url" v-model="videoURLInput" placeholder="Your URL"/>
             </div>
+            <hr>
             <Button label="Analyse" :disabled="!videoURLInput" @click="$router.push('analysis')"/>
         </div>
 
         <div class="second-column col-12 md:col-6">
-            <VideoPreview />
+            <VideoPreview v-if="videoStore.videoURL"/>
         </div>
     </div>
 </template>
@@ -23,7 +24,6 @@
 import { computed, ref } from 'vue'
 import VideoPreview from '@/components/VideoPreview.vue'
 import { useVideoStore } from '@/stores/video';
-import router from '@/router';
 
 const options = ref([
     { name: 'Playlist' },
@@ -54,11 +54,11 @@ const videoURLInput = computed({
     flex-direction: column;
     justify-content: space-around;
     font-weight: bold;
-    padding: 2%;
+    padding: 3%;
 }
 
 h1 {
-    font-size: 80px;
+    font-size: 70px;
     margin: 0;
 }
 

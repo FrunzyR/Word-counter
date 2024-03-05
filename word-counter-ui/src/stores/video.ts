@@ -2,7 +2,7 @@ import { defineStore } from "pinia"
 import { ref, computed } from "vue"
 
 function youtube_parser(url: string): string{
-    if(!url) return "lADBHDg-JtA";
+    if(!url) return " ";
 
     var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
     var match = url.match(regExp);
