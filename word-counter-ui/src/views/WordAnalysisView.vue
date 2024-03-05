@@ -7,6 +7,11 @@
 
         <div class="second-column col-12 md:col-6">
             <DataTable :value="body.results">
+                <Column header="Top" headerStyle="width:3rem">
+                    <template #body="slotProps">
+                         {{ slotProps.index + 1 }}
+                    </template>
+                 </Column>
                 <Column field="word" header="Word"></Column>
                 <Column field="count" header="Count"></Column>
             </DataTable>
