@@ -11,11 +11,11 @@
                 <InputText id="url" v-model="videoURLInput" placeholder="Your URL"/>
             </div>
             <hr>
-            <Button label="Analyse" :disabled="!videoURLInput" @click="$router.push('analysis')"/>
+            <Button label="Analyse" :disabled="!videoURLInput || !videoStore.videoId" @click="$router.push('analysis')"/>
         </div>
 
         <div class="second-column col-12 md:col-6">
-            <VideoPreview v-if="videoStore.videoURL"/>
+            <VideoPreview v-if="videoStore.videoId"/>
         </div>
     </div>
 </template>
@@ -41,6 +41,7 @@ const videoURLInput = computed({
     videoStore.changeVideoURL(val)
   }
 })
+
 </script>
 
 <style scoped>
