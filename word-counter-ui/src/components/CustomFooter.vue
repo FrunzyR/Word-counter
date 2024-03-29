@@ -1,9 +1,13 @@
 <template>
-     <p>@Copyright 2023. Built for fun.</p>
+     <p>@Copyright {{currentYear}}. Built for fun.</p>
 </template>
 
 <script setup lang="ts">
+     import { computed } from 'vue';
 
+     const currentYear = computed(() => {
+          return new Date().getFullYear();
+     });
 </script>
 
 <style scoped>
