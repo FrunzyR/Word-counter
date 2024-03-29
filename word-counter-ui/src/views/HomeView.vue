@@ -6,16 +6,20 @@
                 <label for="selectedOption">Select content type</label>
                 <Dropdown id="selectedOption" v-model="selectedOption" :options="options" optionLabel="name" class="w-full" />
             </div> -->
-            <div class="flex flex-column gap-2">
+            <div class="flex flex-column gap-2 mt-6">
                 <label for="url">Paste the link of a {{ selectedOption.name }}</label>
                 <InputText id="url" v-model="videoURLInput" placeholder="Your URL"/>
+                <small class="text-red-500" 
+                    :class="{'invisible': videoStore.videoId, 'fadein': !videoStore.videoId}">
+                    YouTube Video URL is invalid!
+                </small>
             </div>
             <hr>
             <Button label="Analyse" :disabled="!videoURLInput || !videoStore.videoId" @click="$router.push('analysis')"/>
         </div>
 
         <div class="second-column col-12 md:col-6">
-            <VideoPreview v-if="videoStore.videoId"/>
+            <VideoPreview v-if="videoStore.videoURL && videoStore.videoId"/>
         </div>
     </div>
 </template>
@@ -67,5 +71,9 @@ h1 {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+}
+
+.invisible{ 
+    visibility: hidden;
 }
 </style>
