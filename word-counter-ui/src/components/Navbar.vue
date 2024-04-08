@@ -3,7 +3,9 @@
     <div class="card relative z-2">
         <Menubar>
             <template #start>
-                <img alt="logo" src="https://primefaces.org/cdn/primevue/images/logo.svg" height="40" class="mr-2" />
+                <router-link to="/">
+                    <img alt="logo" src="https://primefaces.org/cdn/primevue/images/logo.svg" height="40" class="mr-2" />
+                </router-link>
             </template>
             <template #item="{ label, item, props, root, hasSubmenu }">
                 Youtube

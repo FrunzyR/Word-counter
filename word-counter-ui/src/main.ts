@@ -19,12 +19,15 @@ import DataTable from 'primevue/datatable';
 import Column from 'primevue/column';
 import ProgressBar from 'primevue/progressbar';
 import ProgressSpinner from 'primevue/progressspinner';
+import ToastService from 'primevue/toastservice';
+import Toast from 'primevue/toast';
 
 const app = createApp(App)
 
 app.use(createPinia())
 app.use(PrimeVue)
 app.use(router)
+app.use(ToastService);
 
 app.component('Dropdown', Dropdown);
 app.component('InputText', InputText)
@@ -34,5 +37,6 @@ app.component('DataTable', DataTable)
 app.component('Column', Column)
 app.component('ProgressBar', ProgressBar)
 app.component('ProgressSpinner', ProgressSpinner)
+app.component('Toast', Toast)
 
 app.mount('#app')
